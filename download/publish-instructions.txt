@@ -1,0 +1,1 @@
+Publish the attached Retinue.html exactly as it is as a new artifact, with the capabilities sample, db, user and assets (declare them as {sample:{}, db:{}, user:{}, assets:{}}). Don't change the file. It loads the game engine retinue-engine 1.0.2 from jsDelivr.
