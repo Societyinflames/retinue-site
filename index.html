@@ -7,13 +7,14 @@
 /* Retinue Engine: a light, quiet page. Paper-white ground, ink text, one deep ink-blue accent and a single
    lantern-amber dot for the brand mark. Each game pack shows in its own colours inside its card. */
 :root{
+  --on-accent:#ffffff;
   --bg:#f7f6f2;--surface:#ffffff;--line:#e3e0d8;--line2:#cfcbc0;--text:#1d1f22;--dim:#5d6168;--faint:#6a6e75;
   --accent:#2d4a6e;--accent-soft:#e6ecf3;--lamp:#d08a2c;--lamp-text:#9a5f12;--ring:#8b8f95;
   --f-head:"Newsreader",Georgia,"Times New Roman",serif;--f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141518;--surface:#1b1d21;--line:#2b2e33;--line2:#3a3e44;--text:#e9e7e2;--dim:#a6a9ae;--faint:#8c9096;--accent:#9db7d9;--accent-soft:#1f2a37;--lamp:#e3a24a;--lamp-text:#e3a24a;--ring:#7c8086;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#141518;--surface:#1b1d21;--line:#2b2e33;--line2:#3a3e44;--text:#e9e7e2;--dim:#a6a9ae;--faint:#8c9096;--accent:#9db7d9;--accent-soft:#1f2a37;--lamp:#e3a24a;--lamp-text:#e3a24a;--ring:#7c8086;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--on-accent:#141518;--bg:#141518;--surface:#1b1d21;--line:#2b2e33;--line2:#3a3e44;--text:#e9e7e2;--dim:#a6a9ae;--faint:#8c9096;--accent:#9db7d9;--accent-soft:#1f2a37;--lamp:#e3a24a;--lamp-text:#e3a24a;--ring:#7c8086;color-scheme:dark}}
+:root[data-theme="dark"]{--on-accent:#141518;--bg:#141518;--surface:#1b1d21;--line:#2b2e33;--line2:#3a3e44;--text:#e9e7e2;--dim:#a6a9ae;--faint:#8c9096;--accent:#9db7d9;--accent-soft:#1f2a37;--lamp:#e3a24a;--lamp-text:#e3a24a;--ring:#7c8086;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font:16.5px/1.65 var(--f-body);margin:0;-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
@@ -59,6 +60,26 @@ h1,h2,h3{font-family:var(--f-head);font-weight:500;letter-spacing:-.01em;margin:
 .make p{color:var(--dim)}
 .make .later{font:500 13px/1 var(--f-body);color:var(--faint);border:1px solid var(--line2);padding:8px 12px;border-radius:999px;white-space:nowrap}
 
+/* get the game */
+.get{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(20px,4vw,48px);padding-block:clamp(36px,6vw,64px);border-top:1px solid var(--line);scroll-margin-top:24px}
+.get h2{font-size:clamp(30px,4vw,40px)}
+.get .intro{display:grid;gap:14px;align-content:start}
+.get .intro p{color:var(--dim)}
+.get .when{font:500 13px/1.3 var(--f-body);color:var(--accent);background:var(--accent-soft);padding:8px 12px;border-radius:999px;justify-self:start}
+.get ol{list-style:none;margin:0;padding:0;display:grid;gap:22px;counter-reset:s}
+.get li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 14px;counter-increment:s}
+.get li::before{content:counter(s);grid-row:span 3;width:34px;height:34px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font:600 14px/1 var(--f-body);color:var(--lamp-text)}
+.get h3{font-size:21px}
+.get li p{color:var(--dim);font-size:15.5px}
+.btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;margin-top:8px;font:600 15px/1 var(--f-body);padding:13px 18px;border-radius:6px;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent)}
+.btn:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn[aria-disabled="true"]{background:var(--surface);color:var(--faint);border-color:var(--line2);pointer-events:none}
+.prompt{margin-top:8px;border:1px solid var(--line2);border-radius:6px;background:var(--surface);overflow:hidden}
+.prompt p{margin:0;padding:14px 16px;font:14px/1.55 ui-monospace,Menlo,Consolas,monospace;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.copy{display:block;width:100%;font:600 14px/1 var(--f-body);padding:12px 16px;border:0;border-top:1px solid var(--line);background:var(--accent-soft);color:var(--accent);cursor:pointer;text-align:left}
+.help{grid-column:1/-1;font-size:14.5px;color:var(--faint);border-top:1px solid var(--line);padding-top:18px}
+@media (max-width:760px){.get{grid-template-columns:1fr}}
+
 footer{border-top:1px solid var(--line);padding-block:24px 36px;color:var(--faint);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 
@@ -78,13 +99,29 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <section class="hero">
     <h1>Solo story games, <em>narrated by Claude.</em></h1>
     <p class="lede">Retinue is a game engine that runs inside your own Claude app. Choose a setting, lead a small retinue of companions, and play a story that remembers what you do: factions rise and fall, people live or die, and every finished campaign becomes part of the world.</p>
-    <div class="date"><b>Saturday 21 November</b><span>The game, the first setting and the pack library open here.</span></div>
+    <div class="date"><b>Saturday 21 November</b><span>The game and its first setting open here. <a href="#get">How to get it</a></span></div>
   </section>
 
   <section class="how" aria-label="How it works">
     <div><span class="n">01</span><h3>One small file</h3><p>Claude publishes a tiny loader as your own copy of the game. Setting up takes a couple of minutes.</p></div>
     <div><span class="n">02</span><h3>Your Claude, your saves</h3><p>The narrator runs on your own Claude account, and your campaigns stay in your copy. A free account works.</p></div>
     <div><span class="n">03</span><h3>Game packs</h3><p>A pack is a whole setting: worlds, people, story and art. Install one in a minute, and switch between them any time.</p></div>
+  </section>
+
+  <section class="get" id="get" aria-labelledby="get-h">
+    <div class="intro">
+      <h2 id="get-h">Get the game</h2>
+      <p>Setting up takes about two minutes. You need the Claude app or claude.ai, on a computer or a phone. A free account works.</p>
+      <span class="when" id="get-when">Opens Saturday 21 November, 2:30pm</span>
+    </div>
+    <ol>
+      <li><h3>Download the game file</h3><p>A small file called Retinue.html. On a phone, save it to your Files or Downloads.</p>
+        <a class="btn" id="get-dl" href="download/Retinue.html" download aria-disabled="true">Download Retinue.html</a></li>
+      <li><h3>Ask Claude to publish it</h3><p>Start a new chat in Claude, attach the file, and send this message with it:</p>
+        <div class="prompt"><p id="get-prompt">Publish the attached Retinue.html exactly as it is as a new artifact, with the capabilities sample, db, user and assets (declare them as {sample:{}, db:{}, user:{}, assets:{}}). Don't change the file. It loads the game engine retinue-engine 1.0.2 from jsDelivr.</p><button class="copy" id="get-copy" type="button">Copy message</button></div></li>
+      <li><h3>Open your copy and play</h3><p>Claude makes the game as an artifact in your chat. Open it, allow what it asks for (the narrator, saving and pictures), and start your first campaign in Amnesty. Keep the artifact: it is your copy, and your saves live in it.</p></li>
+    </ol>
+    <p class="help">Stuck on "Loading the game"? Check the file was published exactly as downloaded, then reopen it. In the game, the menu has <b>Copy details for support</b> if you need to send me what went wrong.</p>
   </section>
 
   <article class="pack" aria-label="The first setting: Amnesty">
@@ -104,5 +141,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 </main>
 
 <footer><div class="wrap"><span>Retinue Engine · an independent, non-commercial project</span><span>Runs in Claude, by Anthropic. Not affiliated.</span></div></footer>
+
+<script>
+(function(){var open=Date.parse("2026-11-21T14:30:00Z"),dl=document.getElementById("get-dl"),w=document.getElementById("get-when");
+function tick(){if(Date.now()>=open){dl.removeAttribute("aria-disabled");w.textContent="Open now";return true}return false}
+if(!tick()){var t=setInterval(function(){if(tick())clearInterval(t)},30000)}
+var b=document.getElementById("get-copy"),p=document.getElementById("get-prompt");
+b.addEventListener("click",function(){var done=function(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy message"},2000)};
+  try{navigator.clipboard.writeText(p.textContent).then(done,sel)}catch(e){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(p);var x=getSelection();x.removeAllRanges();x.addRange(r);b.textContent="Selected: copy it now"}});
+})();
+</script>
 </body>
 </html>
