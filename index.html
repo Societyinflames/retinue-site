@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Retinue</title><meta name="description" content="Retinue makes solo story games narrated by Claude, played in your own Claude app. Chronicle, the narrative engine, opens Saturday 21 November 2026 with Amnesty. Scrip is in development."><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600&family=Big+Shoulders+Display:wght@800&display=swap"><link rel="stylesheet" href="assets/site.css"><style>
+.home-hero picture img{object-position:68% 50%}
+.home-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,15,18,.82) 0%,rgba(11,15,18,.45) 38%,rgba(11,15,18,0) 62%)}
+.home-hero .wrap{z-index:2}
+.home-hero h1{font-size:clamp(40px,6.2vw,78px);max-width:14ch}
+@media (max-width:760px){.home-hero::before{background:none}.home-hero picture{height:60%}.home-hero picture img{height:100%}.home-hero picture img{object-position:50% 45%;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}.home-hero::after{background:linear-gradient(180deg,rgba(11,15,18,.5) 0%,rgba(11,15,18,0) 18%)}.home-hero .wrap{padding-top:50svh}}
 .label{padding-block:calc(120px + env(safe-area-inset-top,0px)) clamp(48px,8vw,88px);border-top:0;background:radial-gradient(ellipse 70% 60% at 78% 30%,#14212c 0%,var(--bg) 70%)}
 .label .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
 .label .hl{display:grid;gap:22px}
@@ -27,8 +32,12 @@
   <nav class="nav" aria-label="Site"><a class="nl" href="chronicle/">Chronicle</a><a class="nl" href="scrip/">Scrip</a><a class="nl" href="games/">Games</a><a class="toplink" href="chronicle/#get">Get Chronicle</a></nav>
 </div></header>
 <main>
-  <section class="label" aria-label="Retinue"><div class="wrap">
-    <div class="hl">
+  <section class="hero home-hero" aria-label="Retinue">
+    <picture>
+      <source media="(max-width:760px)" srcset="assets/retinue-hero-phone.webp">
+      <img src="assets/retinue-hero.webp" width="1376" height="768" alt="Six hooded figures in the rain stand in an open circle around a single lantern" fetchpriority="high">
+    </picture>
+    <div class="wrap">
       <span class="pill" data-open="Chronicle is open now">Chronicle opens Saturday 21 November</span>
       <h1>Story games for your own Claude. <em>You lead. Live with what happens.</em></h1>
       <p class="lede">Retinue makes solo games where Claude narrates, the dice decide and your choices stay made. They run in your own Claude app, and a free account works.</p>
@@ -37,8 +46,7 @@
         <a class="btn ghost" href="#games">See the games</a>
       </div>
     </div>
-    <div class="big"><svg width="320" height="320" viewBox="0 0 64 64" aria-hidden="true"><path d="M10.35 44.5 A25 25 0 1 1 19.5 53.65" fill="none" stroke="var(--ring)" stroke-width="1.6" stroke-linecap="round"/><path d="M27.4355 42.3 29.747500000000002 43.133 29.4925 44.0H20.0575L20.3125 43.133L23.0495 42.232L28.999499999999998 22.698999999999998L26.6875 21.883L26.9425 21.016H36.9555Q39.471500000000006 21.016 41.010000000000005 21.6025Q42.548500000000004 22.189 43.24550000000001 23.259999999999998Q43.9425 24.331 43.9425 25.793Q43.9425 27.68 43.0415 29.1675Q42.1405 30.655 40.3555 31.555999999999997Q38.7405 32.372 36.4455 32.542Q37.3465 32.678 37.9245 33.035Q38.6385 33.494 39.021 34.344Q39.4035 35.194 39.6415 36.469L40.423500000000004 40.243Q40.661500000000004 41.382 40.942 41.900499999999994Q41.2225 42.419 41.638999999999996 42.555Q42.0555 42.691 42.6845 42.691L42.3615 44.0Q40.4915 44.136 39.361000000000004 44.0765Q38.2305 44.017 37.61 43.6685Q36.9895 43.32 36.692 42.6315Q36.3945 41.943 36.1905 40.821L35.3065 36.112Q35.1195 34.973 34.839 34.412Q34.5585 33.851 34.091 33.6555Q33.6235 33.46 32.841499999999996 33.46H30.1385ZM34.1165 31.488Q35.8845 31.488 37.0915 30.74Q38.298500000000004 29.991999999999997 38.936 28.725499999999997Q39.573499999999996 27.459 39.573499999999996 25.912Q39.573499999999996 24.500999999999998 38.6725 23.761499999999998Q37.7715 23.022 35.6465 23.022H33.3175L30.7335 31.488Z" fill="var(--text)"/><g stroke="var(--bg)" stroke-width="2"><circle cx="7.1" cy="29.82" r="3" fill="var(--text)"/><circle cx="17.66" cy="11.52" r="3.5" fill="var(--text)"/><circle cx="44.5" cy="10.35" r="5" fill="var(--lamp)"/><circle cx="56.62" cy="27.66" r="3.5" fill="var(--text)"/><circle cx="51.15" cy="48.07" r="3" fill="var(--text)"/><circle cx="32" cy="57" r="2.5" fill="var(--text)"/></g></svg></div>
-  </div></section>
+  </section>
 
   <section id="games" aria-labelledby="games-h"><div class="wrap">
     <div class="head">
