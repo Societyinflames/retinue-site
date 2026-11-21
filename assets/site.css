@@ -28,7 +28,7 @@ section.card{padding-block:clamp(16px,3vw,32px);border-top:0}
 .head{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,44px);max-width:640px}
 
 /* header, over the hero */
-.top{position:absolute;inset:0 0 auto;z-index:2}
+.top{position:absolute;inset:0 0 auto;z-index:10}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:calc(18px + env(safe-area-inset-top,0px)) 18px}
 .brand{display:flex;align-items:center;gap:9px;font:600 16px/1 var(--f-body);letter-spacing:.01em;color:var(--text);text-decoration:none}
 .brand svg{flex:none}
@@ -163,3 +163,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   .nav a.nl{padding:8px 6px;font-size:13.5px}
 }
 @media (max-width:420px){ .brand .word{display:none} }
+
+/* keep the header above any page hero layers */
+.top.solid{z-index:10}
