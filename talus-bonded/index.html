@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Talus Bonded · Retinue</title><meta name="description" content="Talus Bonded is a solo delve-and-return game from Retinue, set on the frozen mining world of Talus in the Amnesty setting, narrated by Claude and made to pair with your own miniatures. In development."><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600&family=Zilla+Slab:wght@700&display=swap"><link rel="stylesheet" href="../assets/site.css"><style>
+<title>Talus Bonded · Retinue</title><meta name="description" content="Talus Bonded is a solo delve-and-return game from Retinue, set on the frozen mining world of Talus in the Amnesty setting, narrated by Claude. Everyone on Talus is born owing, and nobody pays it off. In development."><link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Instrument+Sans:wght@400;500;600&family=Zilla+Slab:wght@700&display=swap"><link rel="stylesheet" href="../assets/site.css"><style>
 body.dh{--lamp:#e69a35;--accent:#f0b864;--accent-soft:#2a1d10}
 .dh .hero picture img{object-position:76% 45%}
 .dh .hero::after{background:linear-gradient(180deg,rgba(11,15,18,.55) 0%,rgba(11,15,18,0) 20%,rgba(11,15,18,.1) 42%,rgba(11,15,18,.85) 72%,var(--bg) 100%),linear-gradient(90deg,rgba(11,15,18,.55) 0%,rgba(11,15,18,0) 55%)}
@@ -20,6 +20,43 @@ body.dh{--lamp:#e69a35;--accent:#f0b864;--accent-soft:#2a1d10}
 .dh .hero .scrip-note h1{margin:4px 0 0;font-size:clamp(40px,6.6vw,92px);letter-spacing:.08em}
 .dh .hero .scrip-note .tag{font:italic 700 clamp(18px,2.2vw,24px)/1.3 "Zilla Slab",Rockwell,Georgia,serif;color:var(--accent);margin:0 0 6px}
 @media (max-width:760px){.scrip-note{display:flex;width:auto;justify-self:stretch;align-self:stretch}}
+.ledger{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.ledger .prose{display:grid;gap:16px}.ledger .prose p{color:var(--dim)}
+.ledger .prose p b{color:var(--text);font-weight:600}
+.stmt{border:1px solid rgba(230,154,53,.4);outline:1px solid rgba(230,154,53,.4);outline-offset:4px;border-radius:2px;background:#0d1114;padding:clamp(18px,2.4vw,26px);font:14px/1.6 ui-monospace,Menlo,Consolas,monospace;color:var(--dim)}
+.stmt .h{display:flex;justify-content:space-between;gap:12px;font:600 11px/1.3 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);border-bottom:1px dashed var(--line2);padding-bottom:10px;margin-bottom:10px}
+.stmt .row{display:flex;justify-content:space-between;gap:12px}
+.stmt .row span:last-child{color:var(--text);text-align:right}
+.stmt .pos{color:#9fc59a!important}.stmt .neg{color:#e58a6a!important}
+.stmt .bal{border-top:1px dashed var(--line2);margin-top:10px;padding-top:10px;font-size:15px}
+.stmt .bal span:last-child{color:var(--lamp);font-weight:600;font-variant-numeric:tabular-nums}
+.stmt .foot{margin-top:12px;font:italic 13px/1.4 var(--f-head);color:var(--faint)}
+.places{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,22px)}
+.place{border-top:2px solid var(--lamp);padding-top:14px;display:grid;gap:8px;align-content:start}
+.place .k{font:600 11px/1.3 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.place h3{font-size:22px}.place p{color:var(--dim);font-size:15.5px}
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,32px)}
+.path{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:clamp(22px,3vw,32px);display:grid;gap:14px;align-content:start}
+.path h3{font-size:clamp(26px,2.8vw,32px)}.path>p{color:var(--dim)}
+.path .k{font:600 12px/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--lamp)}
+.ranks{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:2px solid var(--line2)}
+.ranks li{position:relative;padding:8px 0 8px 18px;display:grid;gap:2px}
+.ranks li::before{content:"";position:absolute;left:-6px;top:15px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--line2)}
+.ranks li.s1::before{border-color:var(--lamp);background:var(--lamp)}
+.ranks b{font-weight:600;color:var(--text)}.ranks span{color:var(--dim);font-size:15px}
+.ranks .tagS1{font:600 11px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--lamp);margin-left:6px}
+.costs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.costs li{color:var(--dim);font-size:15.5px;padding-left:18px;position:relative}
+.costs li::before{content:"—";position:absolute;left:0;color:var(--lamp)}
+.choice{margin-top:clamp(22px,3vw,32px);padding:clamp(18px,2.4vw,24px);border:1px dashed var(--line2);border-radius:12px;color:var(--dim)}
+.choice b{color:var(--text)}
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,36px)}
+.voices figure{margin:0;display:grid;gap:10px}
+.voices blockquote{margin:0;font:italic clamp(20px,2.2vw,24px)/1.35 var(--f-head);color:var(--text)}
+.voices figcaption{font-size:14.5px;color:var(--faint)}
+.voices figcaption b{color:var(--dim);font-weight:600}
+@media (max-width:900px){.places{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.ledger,.paths,.voices,.places{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="dh">
@@ -46,6 +83,44 @@ body.dh{--lamp:#e69a35;--accent:#f0b864;--accent-soft:#2a1d10}
     </div>
   </section>
 
+  <section id="owing" aria-labelledby="tb-owing"><div class="wrap">
+    <div class="head">
+      <span class="eyebrow">The Apportionment</span>
+      <h2 id="tb-owing">The war was forgiven. <em>The bill was not.</em></h2>
+    </div>
+    <div class="ledger">
+      <div class="prose">
+        <p>When the Charter War ended, the Amnesty pardoned every crime and sealed every record. It kept every debt. The cost of the fleets, the garrisons and the burning of Cinder was divided among every living colonist and their children, and stamped on their papers at birth as a <b>Share</b>.</p>
+        <p>The itemised bill is sealed with the rest of the war. People across the Verge are paying for something they are not allowed to read about.</p>
+        <p>On Talus, the Kessel Fuel Combine buys labourers' Shares and works them off in scrip. Its hold on a person is a <b>bond</b>, and everyone in the camp goes by their bond number. A century of interest has made the numbers so large that nobody alive has seen a labourer clear one.</p>
+      </div>
+      <div class="stmt" aria-label="An example bond statement">
+        <div class="h"><span>Statement of bond</span><span>No. 4471-T</span></div>
+        <div class="row"><span>Holder</span><span>Kessel Fuel Combine</span></div>
+        <div class="row"><span>Status</span><span>Outstanding</span></div>
+        <div class="row"><span>Shift 214 · haul credited</span><span class="pos">−100</span></div>
+        <div class="row"><span>Levy · paid in full</span><span class="pos">−260</span></div>
+        <div class="row"><span>Apportionment interest</span><span class="neg" id="tb-int">+412</span></div>
+        <div class="row bal"><span>Bond remaining</span><span id="tb-bal">900,039,087</span></div>
+        <p class="foot">Nobody leaves Talus owing.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section aria-labelledby="tb-places"><div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Talus</span>
+      <h2 id="tb-places">A frozen world <em>at the edge of the accounts.</em></h2>
+      <p class="lede">Talus is one of the worlds of Amnesty, and its forgotten edge. Fuel wells flare on the ice, the garrison at Coldharbour has been refused reinforcements twice, and the oldest workings were left to freeze after the Mutiny.</p>
+    </div>
+    <div class="places">
+      <div class="place"><span class="k">Home</span><h3>Low Gantry</h3><p>A scrap camp built on an old headframe, a day's walk past the last patrol. Salvage crews, a struck-off medic, a Combine factor, and a bookie who used to be a shop steward.</p></div>
+      <div class="place"><span class="k">Where you work</span><h3>The Deep Shafts</h3><p>Frozen galleries, ore lifts, pump halls and bunkhouses from before the Mutiny. Combine strongrooms nobody emptied, and the bodies the ice kept.</p></div>
+      <div class="place"><span class="k">Below that</span><h3>The Melt</h3><p>Flooded galleries where the ice has gone warm. Something ticks through the rock in a pattern that repeats. Nobody has explained it, and nobody who listens for long wants to.</p></div>
+      <div class="place"><span class="k">Forty years ago</span><h3>Mutiny Field</h3><p>Where the miners who burned the Share registers were broken. Their strike committee had pooled money to buy their freedom. The fund was never found.</p></div>
+    </div>
+  </div></section>
+
   <section aria-labelledby="dh-play"><div class="wrap">
     <div class="head">
       <span class="eyebrow">How it plays</span>
@@ -59,13 +134,65 @@ body.dh{--lamp:#e69a35;--accent:#f0b864;--accent-soft:#2a1d10}
       <div><span class="n">4 · Settle</span><h3>Between delves</h3><p>The settlement has its own story, told between runs: rumours, debts, rivals and the next way down.</p></div>
     </div>
     <div class="keeps">
-      <div><h3>Made for miniatures</h3><p>Your painted models can be your crew. The game keeps track of the story, so the table time stays short.</p></div>
+      <div><h3>Miniatures optional</h3><p>Your painted models can stand in for your crew if you like. The game keeps track of the story either way, so table time stays short.</p></div>
       <div><h3>Story over stats</h3><p>The focus is on who your crew are and what happens to them, not on counting squares.</p></div>
       <div><h3>Same world as Chronicle</h3><p>Talus Bonded is set on Talus, one of the worlds of Amnesty. It runs in your own Claude app like every Retinue game, and your saves stay in your copy.</p></div>
     </div>
-    <p class="note">In development. No release date yet. See what's live and planned on the <a href="../games/">games page</a>.</p>
   </div></section>
+  <section aria-labelledby="tb-paths"><div class="wrap">
+    <div class="head">
+      <span class="eyebrow">What you can win</span>
+      <h2 id="tb-paths">Not freedom. <em>A better life.</em></h2>
+      <p class="lede">The bond will never be paid. What your crew can fight for is everything that makes Talus less cruel: a bunk, a medic, a say in which shaft they go down. There are two ways to get it, and they pull against each other.</p>
+    </div>
+    <div class="paths">
+      <article class="path">
+        <span class="k">Climb the company</span>
+        <h3>The ladder</h3>
+        <p>Meet your tonnage, find someone to vouch for you, keep the Combine's opinion high, and sit the review. Every grade buys a right you can feel.</p>
+        <ol class="ranks">
+          <li><b>Contractor</b><span>Paid per haul. Docked when injured. Replaceable.</span></li>
+          <li><b>Registered Hand</b><span>Your name on the roster. Nobody reassigns your crew.</span></li>
+          <li class="s1"><b>Employee <span class="tagS1">Season 1</span></b><span>Company medical and a bunk. Your bond dies with you, not passed to kin.</span></li>
+          <li><b>Rated Ganger</b><span>You choose the shaft.</span></li>
+          <li><b>Shift Steward</b><span>A place at the store counter, and the rumours first.</span></li>
+          <li><b>Overseer</b><span>Power over other crews, and the hate that comes with it.</span></li>
+        </ol>
+      </article>
+      <article class="path">
+        <span class="k">Build the strike</span>
+        <h3>The fund</h3>
+        <p>Forty years on, nobody thinks the Mutiny's strike fund would free anyone. It could pay for a strike: food, medicine and bribes while the shafts stand idle. Somewhere below, the trail to it is still there.</p>
+        <ul class="costs">
+          <li>Skim the haul for the cause, and slow your own promotion.</li>
+          <li>Cover another crew's shortfall, and earn the camp's trust.</li>
+          <li>Ask the wrong questions, and Combine security starts turning up in the shafts.</li>
+          <li>Get caught, and you're a Contractor again.</li>
+        </ul>
+      </article>
+    </div>
+    <p class="choice"><b>Season 1 ends with a choice.</b> Your Employee review falls due about the time the fund comes within reach. Sign the contract, or hand everything to the camp. Either way, you live with what happens.</p>
+  </div></section>
+
+  <section aria-labelledby="tb-voices"><div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Overheard at Low Gantry</span>
+      <h2 id="tb-voices">Everyone's owing. <em>Everyone's counting.</em></h2>
+    </div>
+    <div class="voices">
+      <figure><blockquote>“I can set the leg. I can't set the rate.”</blockquote><figcaption><b>The medic</b> · struck off · bond 2208-T</figcaption></figure>
+      <figure><blockquote>“Forty years I've taken bets on that fund. Nobody's collected yet.”</blockquote><figcaption><b>The bookie</b> · former shop steward · bond 0391-T</figcaption></figure>
+      <figure><blockquote>“The Combine doesn't want your money. It wants you to keep trying.”</blockquote><figcaption><b>A crew boss</b> · Registered Hand · bond 5130-T</figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:clamp(28px,4vw,44px)">In development. No release date yet. See what's live and planned on the <a href="../games/">games page</a>.</p>
+  </div></section>
+
 </main>
 <footer><div class="wrap"><span>Retinue · an independent, non-commercial project · <a href="../chronicle/">Chronicle</a> · <a href="../chronicle/#settings">Amnesty</a> · <a href="../talus-bonded/">Talus Bonded</a></span><span>Runs in Claude, by Anthropic. Not affiliated.</span></div></footer>
+<script>
+(function(){var b=document.getElementById("tb-bal"),i=document.getElementById("tb-int");if(!b||!i)return;
+if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+var n=900039087;setInterval(function(){var add=300+Math.floor(Math.random()*200);n+=add;i.textContent="+"+add;b.textContent=n.toLocaleString("en-GB")},2600)})();
+</script>
 </body>
 </html>
